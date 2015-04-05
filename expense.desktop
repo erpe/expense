@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=expense
+Exec=ubuntu-html5-app-launcher $@ --www=www --inspector
+Icon=expense.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+

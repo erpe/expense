@@ -1,0 +1,15 @@
+{
+    "name": "expense.erpe",
+    "description": "Track your expenses and know instantely how much you spent this month. (html5 app with localStorage)",
+    "architecture": "all",
+    "title": "expense",
+    "hooks": {
+        "expense": {
+            "apparmor": "expense.apparmor",
+            "desktop": "expense.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "rene paulokat <rene@so36.net>",
+    "framework": "ubuntu-sdk-14.10-html"
+}
