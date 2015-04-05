@@ -6,65 +6,87 @@
 <meta name="description" content="An Ubuntu HTML5 application">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
+<link rel="stylesheet" href="css/app.css" type="text/css" />
 <!-- Ubuntu UI Style imports - Ambiance theme -->
 <link href="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/css/appTemplate.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/app.css" type="text/css" />
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/fast-buttons.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/core.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/buttons.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/dialogs.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/page.js"></script>
+<!-- 
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/pagestacks.js"></script>
+<script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/popovers.js"></script>
+<script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/toolbars.js"></script>
+-->
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/tab.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/tabs.js"></script>
+<script src="js/models.js"></script>
+<script src="js/app.js"></script>
 </head>
 <body>
 
 <div data-role="mainview">
   <header data-role="header">
     <ul data-role="tabs">
-      <li data-role="tabitem" data-page="hello-page">
+      <li data-role="tabitem" data-page="mainPage">
         Expense
+      </li>
+      <li data-role='tabitem' data-page='historyPage'>
+       History 
+      </li>
+      <li data-role="tabitem" data-page="settingsPage">
+        Settings
       </li>
     </ul>
   </header>
 
   <div data-role="content">
-    <div data-role='pagestack'>
 
       <!-- The application main page -->
-      <div data-role="page" id="mainPage">
-        <header class="title large-font centered">
-          Expenses this month <span id='currentExpense'></span> $|€|¥
-        </header>
-
-        <div class='centered introduction'>
+      <div data-role="tab" id="mainPage">
+        <div class='introduction centered '>
           <div data-role='shape'>
             <img src="../expense.png" height=100 class='centered'>
           </div>
         </div>
-      <button data-role='button' id='newExpense'>Add Expense</button> 
+        <p class='introduction padding-top'>Current month 
+          <span class='font-large' style='font-weight: bold;' id='currentExpense'></span> 
+          <span style='font-weight: bold;'>$|€|¥</span>
+        </p>
+        <div class='spacing'>
+          <label  class='padding-left' for='amountExpense'>Add Amount</label>
+          <input name='amountExpense' type="number" class='formInput' id="inputExpense" placeholder='0.00'/>
+        </div>
+        <button data-role="button"  class='padBtn' id="addExpense">Add</button>
       </div>
 
-      <div data-role='page' id='newPage'>
-
-        <div>
-          <label for='amountExpense'>Amount</label>
-            <input name='amountExpense' type="number" class='formInput' id="inputExpense" />
-          </div>
-          <div><button data-role="button" id="addExpense">Add</button></div>
-          <div data-role='list' id='amountAdded' />
-        </div>
-
-        <div data-role='page' id='aboutPage'>
-        </div>
-
+      <div data-role='tab' id='historyPage'>
+        <header class='title'>History soon...</header>
       </div>
-    </div>
+
+      <div data-role='tab' id='settingsPage'>
+        <header class='title'>soon more...</header>
+        <ul>
+          <li>
+            <button data-role='button' id='destroyExpensesBtn'>Destroy Expenses</button>
+          </li>
+        </ul>
+        <p id='destroyResponse' class='padding-top'></p>
+      </div>
+      <div data-role="dialog" id="destroyDialog">
+        <div class='centered'>
+          <p>Will you?</p>
+        </div>
+      </div>
+
+    <!-- end pagestack -->
+    
   </div>
+  <!-- end content -->
+</div>
+<!-- end mainview -->
 
-  <script src="js/models.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,19 +1,33 @@
 #mainPage,
-#newPage,
-#aboutPage{
+#historyPage,
+#aboutPage,
+#settingsPage{
 	padding: 1rem;
 }
+
 
 .title, .introduction, .button .formInput {
 	margin-bottom: 1rem;
 }
+.spacing,
+.padBtn {
+  margin: 1rem 0 1rem 0;
+}
+.padding-left {
+  padding-left: 1rem;
+}
+.padding-top {
+  padding-top: 1rem;
+}
 .centered {
   text-align: center;
 }
+
 input {
   display: inline-block;
   margin-bottom: 1rem;
 }
+
 .is-hidden {
 	display: none;
 }
@@ -40,7 +54,7 @@ input {
 }
  
 .blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+    animation:fade 2000ms 3;
+    -webkit-animation:fade 2000ms 3;
 }
 

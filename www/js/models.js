@@ -8,6 +8,10 @@ ExpenseStore = (function() {
     return Object.keys(localStorage).sort().reverse();
   };
 
+  ExpenseStore.destroy = function() {
+    return localStorage.clear();
+  };
+
   return ExpenseStore;
 
 })();

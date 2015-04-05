@@ -2,6 +2,9 @@ class ExpenseStore
   @months: () ->
     Object.keys(localStorage).sort().reverse()
 
+  @destroy: () ->
+    localStorage.clear()
+
 class ExpenseMonth
 
   constructor: (@dateString) ->

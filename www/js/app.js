@@ -24,8 +24,13 @@ $(document).ready(function () {
       var today = new Date();
       expenseMonth = ExpenseMonth.find(today.getFullYear(), today.getMonth() + 1) || new ExpenseMonth;
       sum = expenseMonth.sum();
-      $('#currentExpense').html(sum.toFixed(2));
+      $('#currentExpense').html("<span class='blink'>" + sum.toFixed(2) + "</span>");
+
       console.log("update total: " + sum);
+    };
+
+    function clearInput() {
+      $('#inputExpense').val('');
     };
 
     var UI = new UbuntuUI();
@@ -38,17 +43,21 @@ $(document).ready(function () {
         console.log("adding: " + val + " amount");
         if (val > 0 ) {
           today = new Date()
-          exp = new ExpenseItem(today.toString(), val, 'testing')
+          exp = new ExpenseItem(today.toString(), val, 'alpha')
           exp.save()
-          displayAmountAdded(val);
           displayTotal();
-          UI.pagestack.pop();
-          //UI.pagestack.push('mainPage');
-
+          clearInput();
         }
     });
 
-    UI.button('newExpense').click(function() {
-      UI.pagestack.push('newPage');
+    UI.button('destroyExpensesBtn').click(function() {
+      console.log("destroyExpenseBtn clicked...");
+      ExpenseStore.destroy();
+      displayTotal();
+      $('#destroyResponse').html("<span class='blink'>All expenses removed.</span>")
+      //UI.dialog('destroyDialog').show();
+      //var base = $('destroyExpenseBtn');
+      //var pop = UI.popover(base, 'destroyPopover');
+      //pop.show();
     });
  });
