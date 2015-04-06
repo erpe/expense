@@ -9,7 +9,7 @@
             "desktop": "expense.desktop"
         }
     },
-    "version": "0.2",
+    "version": "0.3",
     "maintainer": "rene paulokat <rene@so36.net>",
-    "framework": "ubuntu-sdk-14.10-html"
+    "framework": "ubuntu-sdk-14.10"
 }

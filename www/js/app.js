@@ -34,17 +34,28 @@ $(document).ready(function () {
     };
 
     var UI = new UbuntuUI();
+
     UI.init();
 
+    // expensecategory color-coded option in ui
+    var expenseCategory = 0;
+
     displayTotal();
+
+    os = UI.optionselector('expenseCategorySelect', false);
+
+    os.onClicked(function(e) {
+        expenseCategory = e.values;
+    });
 
     UI.button('addExpense').click(function() {
         var val = parseFloat($('#inputExpense').val());
         console.log("adding: " + val + " amount");
         if (val > 0 ) {
-          today = new Date()
-          exp = new ExpenseItem(today.toString(), val, 'alpha')
-          exp.save()
+          today = new Date();
+          exp = new ExpenseItem(today.toString(), val, expenseCategory);
+          console.log("expenseCategory: " + expenseCategory);
+          exp.save();
           displayTotal();
           clearInput();
         }

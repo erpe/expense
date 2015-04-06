@@ -23,6 +23,11 @@
   text-align: center;
 }
 
+.select-shape {
+  max-height: 80%;
+  /* max-width: 80%; */
+}
+
 input {
   display: inline-block;
   margin-bottom: 1rem;

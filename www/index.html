@@ -13,9 +13,11 @@
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/fast-buttons.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/core.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/buttons.js"></script>
+<script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/option-selector.js"></script>
+<script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/header.js"></script>
+<!-- 
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/dialogs.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/page.js"></script>
-<!-- 
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/pagestacks.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/popovers.js"></script>
 <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/toolbars.js"></script>
@@ -46,18 +48,52 @@
 
       <!-- The application main page -->
       <div data-role="tab" id="mainPage">
-        <div class='introduction centered '>
-          <div data-role='shape'>
-            <img src="../expense.png" height=100 class='centered'>
-          </div>
+        <div class='introduction xinset centered'>
+          <img src="../expense.png" height=50>
+          <p class='introduction centered'>Current month
+            <span class='large-font' style='font-weight: bold;' id='currentExpense'></span>
+            <span style='font-weight: bold;'>$|€|¥</span>
+          </p>
         </div>
-        <p class='introduction padding-top'>Current month 
-          <span class='font-large' style='font-weight: bold;' id='currentExpense'></span> 
-          <span style='font-weight: bold;'>$|€|¥</span>
-        </p>
-        <div class='spacing'>
-          <label  class='padding-left' for='amountExpense'>Add Amount</label>
+        <div>
           <input name='amountExpense' type="number" class='formInput' id="inputExpense" placeholder='0.00'/>
+          <label  class='padding-left' for='amountExpense'>Add Amount</label>
+            <div>
+            <section data-role='option-selector' id='expenseCategorySelect' class='xmedium-font'>
+            <ul>
+              <li data-value=0>
+                <aside data-role='shape' class='select-shape'>
+                  <div style='background-color: grey;'></div>
+                </aside>
+                  <p>Grey</p>
+              </li>
+              <li data-value=1>
+                <aside data-role='shape' class='select-shape'>
+                  <div style='background-color: orange;'></div>
+                </aside>
+                <p>Orange</p>
+              </li>
+              <li data-value=2>
+                <aside data-role='shape' class='select-shape' >
+                  <div style='background-color: purple;'></div>
+                </aside>
+                <p>Purple</p>
+              </li>
+              <li data-value=3>
+                <aside data-role='shape' class='select-shape' >
+                  <div style='background-color: green;'></div>
+                </aside>
+                <p>Green</p>
+              </li>
+              <li data-value=4>
+                <aside data-role='shape' class='select-shape' >
+                  <div style='background-color: red;'></div>
+                </aside>
+                <p>Red</p>
+              </li>
+            </ul>
+          </section>
+          </div>
         </div>
         <button data-role="button"  class='padBtn' id="addExpense">Add</button>
       </div>
